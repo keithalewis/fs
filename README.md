@@ -2,8 +2,13 @@
 
 The financial world is complicated but has identifiable components that interact under well-defined rules.
 
-Legal entities trade instruments over time and account for positions and associated cash flows.
-In addition to marking-to-market and profit and loss there are fees and taxes.
+Legal entities trade instruments over time. Trades accumulate to positions
+involving cash flows. Positions are marked-to-market to determine profit and loss.
+
+Some cash flows are a function of the instrument issuer. Stocks have dividends,
+bonds have coupons, futures have margin accounts. There are also
+ancilliary cash flows such as broker fees and taxes.
+
 Managing risk involves models of what can happen in the future and how
 dynamic trading can tailor future cash flows.
 
