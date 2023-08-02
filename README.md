@@ -75,9 +75,18 @@ The _holdings_ of an entity is the collection of all their positions.
 
 ## Examples
 
-Suppose a market consists of a buyer and a seller with the following positions
+Suppose a market consists of a buyer and a seller with the following initial positions
 
 | amount | instrument | entity | role |
 | -----: | :--------- | :----: | :--: |
-| 100 | USD | buyer | initial |
-| 10 | F | seller | initial |
+| 100 | USD | buyer | investor |
+| 10 | F | seller | issuer |
+
+If the buyer purchases 2 share of Ford at price 8 then the following positions are added
+
+| amount | instrument | entity | role |
+| -----: | :--------- | :----: | :--: |
+| -16 | USD | buyer | buy |
+| 2 | F | buyer | buy |
+| 16 | USD | seller | sell |
+| -2 | F | seller | sell |
