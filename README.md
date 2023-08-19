@@ -54,12 +54,38 @@ _Regulators_ specify reporting requirements and place constraints on permissable
 
 ## What
 
-The atomic unit of trading is a _position_: an _amount_ of an _instrument_ that a legal _entity_ holds.
-A _portfolio_ is a collection of positions.
-The _mark-to-market_ of a portfolio is the sum of amounts times prices of each instrument.
-The _profit and loss_ over an interval is the difference of the mark-to-market
-from the beginning to the end. Of course this requires the price of each
-instrument to be known. 
+The atomic unit of trading is a _position_: an _amount_ of an _instrument_
+that a legal _entity_ holds.  A _portfolio_ is a collection of positions.
+The _mark-to-market_ of a portfolio is the sum of amounts times prices
+of each instrument.
+Of course
+this requires the price of each instrument to be specified.
+If market prices are unknown, or undesired, there are various conventions that are
+used. Accountants might use “book,” “liquidation,”
+or “going concern” values.
+The _profit and loss_ over an interval is the
+difference of the mark-to-market from the beginning to the end of the interval.
+
+A _transaction_ is the exchange of positions between a _buyer_ and a _seller_ at some time.
+The seller quotes a _price_ $X$ for trading instrument $i'$ held by the seller
+for instrument $i$ held by the buyer. The buyer give amount $a'X$ in instrument $i$
+to the seller
+
+The buyer decides when and how much of an instrument to acquire from a seller
+in exchange some amount of an instrument they hold.
+The seller decides what that amount they require and 
+provided _prices_ to buyers based on the amount $a'$ of
+The amount is the price 
+
+instrument $i'$ the buyer wants to acquire.
+
+they must give $a'X$ in instrument $i$ to the seller
+where $X$ is the price quoted by the seller.
+
+
+f the price is $X$ for amount  
+The _price_ of the exchange is the ratio of the buyer amount and seller amount.
+
 
 The two main rolls are _buyer_ and _seller_. Some positions are cash flows associated
 with holding a position: _dividend_, _coupon_, _margin_. Derivatives have _payments_
@@ -85,16 +111,16 @@ The _holdings_ of an entity is the collection of all their positions.
 
 Suppose a market consists of a buyer and a seller with the following initial positions
 
-| amount | instrument | entity | role |
-| -----: | :--------- | :----: | :--: |
-| 100 | USD | buyer | investor |
-| 10 | F | seller | issuer |
+| amount | instrument | entity | 
+| -----: | :--------- | :----: |
+| 100 | USD | buyer |
+| 10 | F | seller |
 
 If the buyer purchases 2 share of Ford at price 8 then the following positions are added
 
-| amount | instrument | entity | role |
-| -----: | :--------- | :----: | :--: |
-| -16 | USD | buyer | buy |
-| 2 | F | buyer | buy |
-| 16 | USD | seller | sell |
-| -2 | F | seller | sell |
+| amount | instrument | entity 
+| -----: | :--------- | :----:
+| -16 | USD | buyer | 
+| 2 | F | buyer | 
+| 16 | USD | seller |
+| -2 | F | seller | 
