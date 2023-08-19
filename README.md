@@ -54,37 +54,52 @@ _Regulators_ specify reporting requirements and place constraints on permissable
 
 ## What
 
+Legal entities trade positions belonging to their portfolios.
+Portfolios can be marked-to-market given instrument prices
+to determine profit-and-loss.
+
 The atomic unit of trading is a _position_: an _amount_ of an _instrument_
 that a legal _entity_ holds.  A _portfolio_ is a collection of positions.
-The _mark-to-market_ of a portfolio is the sum of amounts times prices
-of each instrument.
-Of course
-this requires the price of each instrument to be specified.
-If market prices are unknown, or undesired, there are various conventions that are
-used. Accountants might use “book,” “liquidation,”
-or “going concern” values.
-The _profit and loss_ over an interval is the
-difference of the mark-to-market from the beginning to the end of the interval.
+The _mark-to-market_ of a portfolio is the sum of amounts times prices of
+each instrument.  Of course this requires the price of each instrument
+to be specified.  If market prices are unknown, or undesired, there are
+various conventions that are used. Accountants might use “book,”
+“liquidation,” or “going concern” values.  The _profit and
+loss_ over an interval is the difference of the mark-to-market from the
+beginning to the end of the interval.
 
-A _transaction_ is the exchange of positions between a _buyer_ and a _seller_ at some time.
-The seller quotes a _price_ $X$ for trading instrument $i'$ held by the seller
-for instrument $i$ held by the buyer. The buyer give amount $a'X$ in instrument $i$
-to the seller
+At any point in time a _buyer_ can decide to _exchange_ a position they
+hold with a position a _seller_ holds.  The seller quotes a _price_ $X$
+for trading instrument $i'$ held by the seller for instrument $i$ (usually
+native currency) held by the buyer. The buyer can give amount $a'X$ of
+instrument $i$ to the seller to obtain amount $a'$ of instrument $i'$.
+In the real world the price depends on whether the buyer is _buying_
+($a' > 0)$ or _selling_ ($a' < 0)$. The seller provides an _ask_
+or _bid_ price respectively.
+The price a seller quotes can (and ofton does) take into account the size of
+the trade and who the buyer is.
+After an exchange is executed there is no longer a mystery about the price,
+it is the ratio of the buyer amount and the seller amount.
 
-The buyer decides when and how much of an instrument to acquire from a seller
-in exchange some amount of an instrument they hold.
-The seller decides what that amount they require and 
-provided _prices_ to buyers based on the amount $a'$ of
-The amount is the price 
+## Examples
 
-instrument $i'$ the buyer wants to acquire.
+Suppose a market consists of a buyer and a seller with the following initial positions
 
-they must give $a'X$ in instrument $i$ to the seller
-where $X$ is the price quoted by the seller.
+| amount | instrument | entity | 
+| -----: | :--------- | :----: |
+| 100 | USD | buyer |
+| 10 | F | seller |
 
+If the buyer purchases 2 share of Ford at price 8 then the following positions are added
 
-f the price is $X$ for amount  
-The _price_ of the exchange is the ratio of the buyer amount and seller amount.
+| amount | instrument | entity |
+| -----: | :--------- | :----: |
+| -16 | USD | buyer | 
+| 2 | F | buyer | 
+| 16 | USD | seller |
+| -2 | F | seller | 
+
+<!--
 
 
 The two main rolls are _buyer_ and _seller_. Some positions are cash flows associated
@@ -106,21 +121,4 @@ Cash flow transactions occur due to holding an instrument.
 
 The _market_ is the collection of all positions.
 The _holdings_ of an entity is the collection of all their positions.
-
-## Examples
-
-Suppose a market consists of a buyer and a seller with the following initial positions
-
-| amount | instrument | entity | 
-| -----: | :--------- | :----: |
-| 100 | USD | buyer |
-| 10 | F | seller |
-
-If the buyer purchases 2 share of Ford at price 8 then the following positions are added
-
-| amount | instrument | entity 
-| -----: | :--------- | :----:
-| -16 | USD | buyer | 
-| 2 | F | buyer | 
-| 16 | USD | seller |
-| -2 | F | seller | 
+-->
