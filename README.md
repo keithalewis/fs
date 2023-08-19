@@ -54,13 +54,21 @@ _Regulators_ specify reporting requirements and place constraints on permissable
 
 ## What
 
-The atomic unit of trading is a _position_: an _amount_ of an _instrument_ that is _held_
-by a legal entity. Each position has a _role_ indicating provenance.
+The atomic unit of trading is a _position_: an _amount_ of an _instrument_ that a legal _entity_ holds.
+A _portfolio_ is a collection of positions.
+The _mark-to-market_ of a portfolio is the sum of amounts times prices of each instrument.
+The _profit and loss_ over an interval is the difference of the mark-to-market
+from the beginning to the end. Of course this requires the price of each
+instrument to be known. 
+
 The two main rolls are _buyer_ and _seller_. Some positions are cash flows associated
 with holding a position: _dividend_, _coupon_, _margin_. Derivatives have _payments_
 that are either _received_ by the buyer or _paid_ by the seller.
 There are also _fees_ associated with making transactions and _taxes_ depending
 on the entity and accounting rules for collections of positions.
+
+Each position has a position id. `roles` indicates why the position exists.
+Hold meta data off the id.
 
 A _price transaction_ occurs at a point in time and involves a buyer and a seller
 exchanging positions. There may also be positions involving intermediaries
