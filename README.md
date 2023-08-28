@@ -58,13 +58,68 @@ Country, state, or local govermnent entity.
 
 ## What
 
-The atomic unit of trading is a _position_: an _amount_ of an _instrument_ that is _held_
-by a legal entity. Each position has a _role_ indicating provenance.
+Legal entities trade positions belonging to their portfolios.
+Portfolios can be marked-to-market given instrument prices
+to determine profit-and-loss.
+
+The atomic unit of trading is a _position_: an _amount_ of an _instrument_
+that a legal _entity_ holds.  A _portfolio_ is a collection of positions.
+The _mark-to-market_ of a portfolio is the sum of amounts times prices of
+each instrument.  Of course this requires the price of each instrument
+to be specified.  If market prices are unknown, or undesired, there are
+various conventions that are used. Accountants might use “book,”
+“liquidation,” or “going concern” values.  The _profit and
+loss_ over an interval is the difference of the mark-to-market from the
+beginning to the end of the interval.
+
+At any point in time a _buyer_ can decide to _exchange_ a position they
+hold with a position a _seller_ holds.  The seller quotes a _price_ $X$
+for trading instrument $i'$ held by the seller for instrument $i$ (usually
+native currency) held by the buyer. The buyer can give amount $a'X$ of
+instrument $i$ to the seller to obtain amount $a'$ of instrument $i'$.
+In the real world the price depends on whether the buyer is _buying_
+($a' > 0)$ or _selling_ ($a' < 0)$. The seller provides an _ask_
+or _bid_ price respectively.
+The price a seller quotes can (and ofton does) take into account the size of
+the trade and who the buyer is.
+After an exchange is executed there is no longer a mystery about the price,
+it is the ratio of the buyer amount and the seller amount.
+
+## Examples
+
+Suppose a market consists of a buyer and a seller with the following initial positions
+
+| amount | instrument | entity | 
+| -----: | :--------- | :----: |
+| 100 | USD | buyer |
+| 10 | F | seller |
+
+If the buyer purchases 2 share of Ford at price 8 then the following positions are added
+
+| amount | instrument | entity |
+| -----: | :--------- | :----: |
+| -16 | USD | buyer | 
+| 2 | F | buyer | 
+| 16 | USD | seller |
+| -2 | F | seller | 
+
+Of course the Ford Motor Company would have entries for $(-2, USD, Ford)$, $(-98, USD, Ford)$
+in addition to those for all other share holders.
+
+The tranaction table has entries of the form $(t, π, π')$ where $t$ is the
+time of the transaction and $π$, and $π'$ are position id's from the position table.
+
+<!--
+
+
 The two main rolls are _buyer_ and _seller_. Some positions are cash flows associated
 with holding a position: _dividend_, _coupon_, _margin_. Derivatives have _payments_
 that are either _received_ by the buyer or _paid_ by the seller.
 There are also _fees_ associated with making transactions and _taxes_ depending
 on the entity and accounting rules for collections of positions.
+
+Each position has a position id. `roles` indicates why the position exists.
+Hold meta data off the id.
 
 A _price transaction_ occurs at a point in time and involves a buyer and a seller
 exchanging positions. There may also be positions involving intermediaries
@@ -102,9 +157,3 @@ proportional to the amount they hold. A 1 dollar dividend would add the followin
 | -----: | :--------- | :----: |
 | 2 | USD | buyer |
 | 98 | USD | seller |
-
-Of course the Ford Motor Company would have entries for $(-2, USD, Ford)$, $(-98, USD, Ford)$
-in addition to those for all other share holders.
-
-The tranaction table has entries of the form $(t, π, π')$ where $t$ is the
-time of the transaction and $π$, and $π'$ are position id's from the position table.
