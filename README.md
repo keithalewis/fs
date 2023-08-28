@@ -3,9 +3,9 @@
 The financial world is complicated but has identifiable components that interact under well-defined rules.
 
 Legal entities trade instruments over time. Trades accumulate to positions
-involving cash flows. Positions are marked-to-market to determine profit and loss.
+having associated cash flows. Positions are marked-to-market to determine profit and loss.
 
-Some cash flows are a function of the instrument issuer. Stocks have dividends,
+Some cash flows depend on the instrument issuer. Stocks have dividends,
 bonds have coupons, futures have margin accounts. There are also
 ancillary cash flows such as broker fees and taxes.
 
@@ -52,6 +52,10 @@ they are willing to trade at the current market price.
 
 _Regulators_ specify reporting requirements and place constraints on permissable trading activity.
 
+### Government
+
+Country, state, or local govermnent entity.
+
 ## What
 
 The atomic unit of trading is a _position_: an _amount_ of an _instrument_ that is _held_
@@ -70,23 +74,37 @@ A _cash flow transaction_ accounts for the positions due to holding an instrumen
 These can be dividends, coupons, margin payments/debits, borrow/holding costs, and taxes.
 Cash flow transactions occur due to holding an instrument.
 
-The _market_ is the collection of all positions.
-The _holdings_ of an entity is the collection of all their positions.
+The _portfolio_ of an entity is the collection of all their positions.
+The _market_ is the collection of all portfolios.
 
 ## Examples
 
 Suppose a market consists of a buyer and a seller with the following initial positions
 
-| amount | instrument | entity | role |
-| -----: | :--------- | :----: | :--: |
-| 100 | USD | buyer | investor |
-| 10 | F | seller | issuer |
+| amount | instrument | entity 
+| -----: | :--------- | :----:|
+| 100 | USD | buyer |
+| 10 | F | seller |
 
 If the buyer purchases 2 share of Ford at price 8 then the following positions are added
 
-| amount | instrument | entity | role |
-| -----: | :--------- | :----: | :--: |
-| -16 | USD | buyer | buy |
-| 2 | F | buyer | buy |
-| 16 | USD | seller | sell |
-| -2 | F | seller | sell |
+| amount | instrument | entity | 
+| -----: | :--------- | :----: |
+| -16 | USD | buyer |
+| 2 | F | buyer |
+| 16 | USD | seller |
+| -2 | F | seller |
+
+If Ford issues a dividend then every entity holding F receives a position
+proportional to the amount they hold. A 1 dollar dividend would add the following positions to the market
+
+| amount | instrument | entity | 
+| -----: | :--------- | :----: |
+| 2 | USD | buyer |
+| 98 | USD | seller |
+
+Of course the Ford Motor Company would have entries for $(-2, USD, Ford)$, $(-98, USD, Ford)$
+in addition to those for all other share holders.
+
+The tranaction table has entries of the form $(t, π, π')$ where $t$ is the
+time of the transaction and $π$, and $π'$ are position id's from the position table.
