@@ -12,7 +12,7 @@ ancillary cash flows such as broker fees and taxes.
 Managing risk involves models of what can happen in the future and how
 dynamic trading can tailor future cash flows.
 
-## Who
+## Entities
 
 ### Issuer
 
@@ -56,7 +56,7 @@ _Regulators_ specify reporting requirements and place constraints on permissable
 
 Country, state, or local govermnent entity.
 
-## What
+## Trading
 
 Legal entities trade positions belonging to their portfolios.
 Portfolios can be marked-to-market given instrument prices
