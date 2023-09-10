@@ -1,3 +1,11 @@
+---
+header-includes:
+  - \usepackage{enumitem}
+  - \setlistdepth{20}
+  - \renewlist{itemize}{itemize}{20}
+  - \renewlist{enumerate}{enumerate}{20}
+---
+
 # Financial System
 
 The financial world is complicated but has identifiable components that interact under well-defined rules.
@@ -12,7 +20,7 @@ ancillary cash flows such as broker fees and taxes.
 Managing risk involves models of what can happen in the future and how
 dynamic trading can tailor future cash flows.
 
-## Who
+## Entities
 
 ### Issuer
 
@@ -56,7 +64,7 @@ _Regulators_ specify reporting requirements and place constraints on permissable
 
 Country, state, or local govermnent entity.
 
-## What
+## Trading
 
 Legal entities trade positions belonging to their portfolios.
 Portfolios can be marked-to-market given instrument prices
@@ -103,7 +111,7 @@ If the buyer purchases 2 share of Ford at price 8 then the following positions a
 | 16 | USD | seller |
 | -2 | F | seller | 
 
-Of course the Ford Motor Company would have entries for $(-2, USD, Ford)$, $(-98, USD, Ford)$
+Of course the Ford Motor Company would have entries for `(-2, USD, Ford)`, `(-98, USD, Ford)`
 in addition to those for all other share holders.
 
 The tranaction table has entries of the form $(t, π, π')$ where $t$ is the
@@ -157,3 +165,4 @@ proportional to the amount they hold. A 1 dollar dividend would add the followin
 | -----: | :--------- | :----: |
 | 2 | USD | buyer |
 | 98 | USD | seller |
+>>>>>>> c1b70f488f7cd9c4bd24cf34c33e9245ee4af43c
